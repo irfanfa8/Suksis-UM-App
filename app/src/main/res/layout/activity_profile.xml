@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp"
+        android:backgroundTint="@color/white"
+        app:cardElevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/myToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewUserFullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fullname"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/textViewUserMatric"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Matric Number"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="@+id/textViewUserFullname"
+                app:layout_constraintTop_toBottomOf="@+id/textViewUserFullname" />
+
+            <TextView
+                android:id="@+id/textViewKSNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KS Number"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="@+id/textViewUserMatric"
+                app:layout_constraintTop_toBottomOf="@+id/textViewUserMatric" />
+
+            <TextView
+                android:id="@+id/textViewEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="@+id/textViewKSNumber"
+                app:layout_constraintTop_toBottomOf="@+id/textViewKSNumber" />
+
+            <TextView
+                android:id="@+id/textViewNoPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="@+id/textViewEmail"
+                app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+
+            <TextView
+                android:id="@+id/textViewRace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Race"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="@+id/textViewNoPhone"
+                app:layout_constraintTop_toBottomOf="@+id/textViewNoPhone" />
+
+            <TextView
+                android:id="@+id/textViewGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="@+id/textViewRace"
+                app:layout_constraintTop_toBottomOf="@+id/textViewRace" />
+
+            <TextView
+                android:id="@+id/TVUserFullname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fullname"
+                android:textColor="@color/grey"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/TVUserMatric"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Matric Number"
+                android:textColor="@color/grey"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="@+id/TVUserFullname"
+                app:layout_constraintTop_toBottomOf="@+id/TVUserFullname" />
+
+            <TextView
+                android:id="@+id/TVKSNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KS Number"
+                android:textColor="@color/grey"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="@+id/TVUserMatric"
+                app:layout_constraintTop_toBottomOf="@+id/TVUserMatric" />
+
+            <TextView
+                android:id="@+id/TVEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="@color/grey"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="@+id/TVKSNumber"
+                app:layout_constraintTop_toBottomOf="@+id/TVKSNumber" />
+
+            <TextView
+                android:id="@+id/TVNoPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:textColor="@color/grey"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="@+id/TVEmail"
+                app:layout_constraintTop_toBottomOf="@+id/TVEmail" />
+
+            <TextView
+                android:id="@+id/TVRace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Race"
+                android:textColor="@color/grey"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="@+id/TVNoPhone"
+                app:layout_constraintTop_toBottomOf="@+id/TVNoPhone" />
+
+            <TextView
+                android:id="@+id/TVGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textColor="@color/grey"
+                android:textSize="16sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintEnd_toEndOf="@+id/TVRace"
+                app:layout_constraintTop_toBottomOf="@+id/TVRace" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/buttonEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/white"
+        android:elevation="4dp"
+        android:stateListAnimator="@null"
+        android:text="Edit Profile"
+        android:textColor="@color/black"
+        android:translationZ="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <Button
+        android:id="@+id/buttonLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/red"
+        android:elevation="4dp"
+        android:stateListAnimator="@null"
+        android:text="Log Out"
+        android:textColor="@color/white"
+        android:translationZ="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonEditProfile" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/navigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/main"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
+
+            <Button
+                android:id="@+id/homePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_home"
+                android:text="Home"
+                android:drawableTint="@color/white"/>
+
+            <Button
+                android:id="@+id/qrPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_qr_code"
+                android:text="QR scan"
+                android:drawableTint="@color/white"/>
+
+            <Button
+                android:id="@+id/letterPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_description"
+                android:text="Letter"
+                android:drawableTint="@color/white" />
+
+            <Button
+                android:id="@+id/profilePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_person"
+                android:text="Profile"
+                android:drawableTint="@color/white"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

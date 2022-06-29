@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="5dp">
+
+    <EditText
+        android:id="@+id/editTextReasonUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:gravity="top"
+        android:hint="Enter reason" />
+
+    <Button
+        android:id="@+id/buttonDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextReasonUp"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/ic_calendar"
+        android:drawableTint="@color/white"
+        android:padding="10dp"
+        android:text="Select date" />
+
+    <Button
+        android:id="@+id/buttonPDF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonDate"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/ic_pdf"
+        android:drawableTint="@color/white"
+        android:padding="10dp"
+        android:text="Insert file" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/buttonPDF">
+
+        <Button
+            android:id="@+id/buttonUpdateLetter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="3dp"
+            android:text="Update" />
+
+        <Button
+            android:id="@+id/buttonDeleteLetter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="3dp"
+            android:text="Delete" />
+
+    </LinearLayout>
+
+</RelativeLayout>

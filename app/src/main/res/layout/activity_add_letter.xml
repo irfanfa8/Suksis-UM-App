@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="10dp"
+    android:paddingVertical="20dp">
+
+    <TextView
+        android:id="@+id/textViewLetter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create absent letter"
+        android:textAlignment="center"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textColor="@color/main"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutReason"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:hint="Enter reason"
+        android:layout_below="@+id/textViewLetter">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextReason"
+            android:layout_width="match_parent"
+            android:layout_height="195dp"
+            android:gravity="top"
+            android:inputType="textCapSentences" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textInputLayoutReason"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:drawableLeft="@drawable/ic_calendar"
+        android:drawableTint="@color/white"
+        android:padding="10dp"
+        android:text="Select date" />
+
+    <Button
+        android:id="@+id/buttonPDF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonDate"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/ic_pdf"
+        android:drawableTint="@color/white"
+        android:padding="10dp"
+        android:text="Insert file" />
+
+    <Button
+        android:id="@+id/buttonSubmitLetter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/buttonPDF"/>
+
+</RelativeLayout>

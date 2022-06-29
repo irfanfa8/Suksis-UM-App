@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "994956010379",
+    "firebase_url": "https://suksis-app-default-rtdb.firebaseio.com",
+    "project_id": "suksis-app",
+    "storage_bucket": "suksis-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994956010379:android:ce5986ffc791c0ad84058e",
+        "android_client_info": {
+          "package_name": "com.example.suksisumapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "994956010379-tqf7jidkualn3kepckgk2n8qdsvtsfuj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArSH1QAtpGfwTQw4sL6eJWW1Q_dXSi8rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "994956010379-tqf7jidkualn3kepckgk2n8qdsvtsfuj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994956010379:android:cf566bf06900e8d084058e",
+        "android_client_info": {
+          "package_name": "com.example.suksisumapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "994956010379-tqf7jidkualn3kepckgk2n8qdsvtsfuj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArSH1QAtpGfwTQw4sL6eJWW1Q_dXSi8rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "994956010379-tqf7jidkualn3kepckgk2n8qdsvtsfuj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

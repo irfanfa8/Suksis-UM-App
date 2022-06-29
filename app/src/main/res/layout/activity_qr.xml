@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QRActivity">
+
+    <Button
+        android:id="@+id/ButtonScan"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:background="@drawable/button_shape_white"
+        android:drawableTop="@drawable/ic_qr_scanner"
+        android:drawableTint="@color/black"
+        android:elevation="4dp"
+        android:padding="10dp"
+        android:stateListAnimator="@null"
+        android:text="Scan"
+        android:textColor="@color/black"
+        android:translationZ="2dp"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.42"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/linearLayoutStaff">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/linearLayout2"
+            android:layout_marginTop="5dp">
+
+            <Button
+                android:id="@+id/ButtonGenerate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/ic_qr_generate"
+                android:drawableTint="@color/black"
+                android:padding="10dp"
+                android:layout_weight="1"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginVertical="10dp"
+                android:elevation="4dp"
+                android:stateListAnimator="@null"
+                android:translationZ="2dp"
+                android:text="Generate"
+                android:textColor="@color/black"
+                app:backgroundTint="@null"
+                android:background="@drawable/button_shape_white"/>
+
+            <Button
+                android:id="@+id/ButtonSearchAttendance"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginVertical="10dp"
+                android:backgroundTint="@color/white"
+                android:drawableTop="@drawable/ic_search"
+                android:drawableTint="@color/black"
+                android:textColor="@color/black"
+                android:padding="10dp"
+                android:elevation="4dp"
+                android:stateListAnimator="@null"
+                android:translationZ="2dp"
+                android:text="Search Attendance"
+                app:backgroundTint="@null"
+                android:background="@drawable/button_shape_white"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/navigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:backgroundTint="@color/main"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingHorizontal="10dp">
+
+            <Button
+                android:id="@+id/homePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_home"
+                android:text="Home"
+                android:drawableTint="@color/white"/>
+
+            <Button
+                android:id="@+id/qrPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_qr_code"
+                android:text="QR scan"
+                android:drawableTint="@color/white"/>
+
+            <Button
+                android:id="@+id/letterPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_description"
+                android:text="Letter"
+                android:drawableTint="@color/white" />
+
+            <Button
+                android:id="@+id/profilePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_person"
+                android:text="Profile"
+                android:drawableTint="@color/white"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
