@@ -4,15 +4,19 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -22,6 +26,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -30,6 +36,8 @@ import java.util.Calendar;
 
 public class QRActivity extends AppCompatActivity {
 
+    private static final int CAMERA_REQUEST_CODE = 1;
+
     //firebase auth object
     private FirebaseAuth firebaseAuth;
     private FirebaseFirestore firebaseFirestore;
@@ -37,6 +45,10 @@ public class QRActivity extends AppCompatActivity {
 
     //our database reference object
     DatabaseReference databaseAttendance;
+
+    private StorageReference storageReference;
+
+    private ProgressDialog progressDialog;
 
     Button ButtonGenerate, ButtonScan, ButtonSearchAttendance, ButtonSearchDate;
     Button ButtonHome, ButtonQR, ButtonLetter, ButtonProfile;
@@ -168,39 +180,56 @@ public class QRActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        //Initialize intent result
-        IntentResult intentResult = IntentIntegrator.parseActivityResult(
-                requestCode, resultCode, data
-        );
-        //Check condition
-        if (intentResult.getContents() != null){
-            //When result content is not null
-            //Initialize alert dialog
-            AlertDialog.Builder builder = new AlertDialog.Builder(
-                    QRActivity.this
-            );
-            //Set title
-            builder.setTitle("Success!");
-            //Set message
-            String Result = intentResult.getContents();
-            builder.setMessage("You have attend " + Result + " training session!");
-            addAttendance(Result);
 
-            //Set positive button
-            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    //Dismiss dialog
-                    dialog.dismiss();
-                }
-            });
-            //Show alert dialog
-            builder.show();
-        }else {
-            //When result content is null
-            //Display toast
-            Toast.makeText(getApplicationContext(), "Oooppps... You did not scan anything", Toast.LENGTH_SHORT).show();
-        }
+
+            //Initialize intent result
+            IntentResult intentResult = IntentIntegrator.parseActivityResult(
+                    requestCode, resultCode, data);
+
+            //Check condition
+            if (intentResult.getContents() != null){
+                //When result content is not null
+                //Initialize alert dialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(
+                        QRActivity.this
+                );
+
+                //Set title
+                builder.setTitle("Take Selfie");
+                String Result = intentResult.getContents();
+                //Set message
+                builder.setMessage("You need to take selfie with your current location!");
+
+                //Set positive button
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        addAttendance(Result);
+
+                        Intent intent = new Intent(QRActivity.this, Selfie.class);
+
+                        //Create the bundle
+                        Bundle b = new Bundle();
+                        //Add your data to bundle
+                        b.putString("result", Result);
+                        intent.putExtras(b);
+
+                        //Dismiss dialog
+                        dialog.dismiss();
+
+                        startActivity(intent);
+                    }
+                });
+
+                //Show alert dialog
+                builder.show();
+            }else {
+                //When result content is null
+                //Display toast
+                Toast.makeText(getApplicationContext(), "Oooppps... You did not scan anything", Toast.LENGTH_SHORT).show();
+            }
+
     }
 
     private void addAttendance(String Result) {

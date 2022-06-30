@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SuksisUMApp">
         <activity
+        android:name=".Selfie"
+        android:exported="false" />
+        <activity
             android:name=".EditProfileActivity"
             android:exported="false" />
         <activity
