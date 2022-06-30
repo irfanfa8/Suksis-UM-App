@@ -6,17 +6,19 @@ public class Letter {
     private String letterTitle;
     private String letterDate;
     private String letterStatus;
+    private String letterURL;
 
     public Letter(){
         //this constructor is required
     }
 
-    public Letter(String letterId, String letterName, String letterTitle, String letterDate, String letterStatus) {
+    public Letter(String letterId, String letterName, String letterTitle, String letterDate, String letterStatus, String letterURL) {
         this.letterId = letterId;
         this.letterName = letterName;
         this.letterTitle = letterTitle;
         this.letterDate = letterDate;
         this.letterStatus = letterStatus;
+        this.letterURL = letterURL;
     }
 
     public String getLetterId() {
@@ -31,9 +33,16 @@ public class Letter {
         return letterTitle;
     }
 
-    public String getLetterDate() { return letterDate; }
+    public String getLetterDate() {
+        return letterDate;
+    }
 
     public String getLetterStatus() {
         return letterStatus;
     }
+
+    public String getLetterURL() {
+        return letterURL;
+    }
+
 }

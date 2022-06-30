@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -115,18 +116,28 @@ public class LetterActivity extends AppCompatActivity {
                             @Override
                             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                                 Letter letter = letters.get(i);
-                                showUpdateDeleteDialog(letter.getLetterId(), letter.getLetterName(), letter.getLetterTitle(), letter.getLetterDate(), letter.getLetterStatus());
+                                showUpdateDeleteDialog(letter.getLetterId(), letter.getLetterName(), letter.getLetterTitle(), letter.getLetterDate(), letter.getLetterStatus(), letter.getLetterURL());
                                 return true;
                             }
                         });
                     }
                     if(documentSnapshot.getString("user_type").compareTo("Staff") == 0){
                         userType = "Staff";
+                        listViewPending.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                Letter letter = letters.get(i);
+                                showApproveRejectDialog(letter.getLetterId(), letter.getLetterName(), letter.getLetterTitle(), letter.getLetterDate(), letter.getLetterURL());
+                            }
+                        });
                         listViewPending.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
                             @Override
                             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                                 Letter letter = letters.get(i);
-                                showApproveRejectDialog(letter.getLetterId(), letter.getLetterName(), letter.getLetterTitle(), letter.getLetterDate());
+                                Intent intent = new Intent(Intent.ACTION_VIEW);
+                                intent.setType("application/pdf");
+                                intent.setData(Uri.parse(letter.getLetterURL()));
+                                startActivity(intent);
                                 return true;
                             }
                         });
@@ -242,18 +253,18 @@ public class LetterActivity extends AppCompatActivity {
         });
     }
 
-    private boolean updateLetter(String id, String name, String title, String date, String status) {
+    private boolean updateLetter(String id, String name, String title, String date, String status, String url) {
         //getting the specified letter reference
         DatabaseReference dR = FirebaseDatabase.getInstance().getReference("Letters").child(id);
 
         //updating letter
-        Letter letter = new Letter(id, name, title, date, status);
+        Letter letter = new Letter(id, name, title, date, status, url);
         dR.setValue(letter);
         Toast.makeText(getApplicationContext(), "Letter Updated", Toast.LENGTH_LONG).show();
         return true;
     }
 
-    private void showApproveRejectDialog(final String letterId, String letterName, String letterTitle, String letterDate) {
+    private void showApproveRejectDialog(final String letterId, String letterName, String letterTitle, String letterDate, String letterURL) {
 
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
@@ -272,7 +283,7 @@ public class LetterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String status = "Approved";
-                updateLetter(letterId, letterName, letterTitle, letterDate, status);
+                updateLetter(letterId, letterName, letterTitle, letterDate, status, letterURL);
                 b.dismiss();
             }
         });
@@ -281,7 +292,7 @@ public class LetterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String status = "Rejected";
-                updateLetter(letterId, letterName, letterTitle, letterDate, status);
+                updateLetter(letterId, letterName, letterTitle, letterDate, status, letterURL);
                 b.dismiss();
             }
         });
@@ -296,7 +307,7 @@ public class LetterActivity extends AppCompatActivity {
         });
     }
 
-    private void showUpdateDeleteDialog(String letterId, String letterName, String letterTitle, String letterDate, String letterStatus) {
+    private void showUpdateDeleteDialog(String letterId, String letterName, String letterTitle, String letterDate, String letterStatus, String letterURL) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         final View dialogView = inflater.inflate(R.layout.update_letter_dialog, null);
@@ -337,7 +348,7 @@ public class LetterActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String title = editTextReasonUp.getText().toString().trim();
                 if (!TextUtils.isEmpty(title)) {
-                    updateLetter(letterId, letterName, title, letterDate, letterStatus);
+                    updateLetter(letterId, letterName, title, letterDate, letterStatus, letterURL);
                     c.dismiss();
                 }
             }
