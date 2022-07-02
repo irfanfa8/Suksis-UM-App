@@ -114,6 +114,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_home"
                 android:text="Home"
+                android:textSize="11sp"
                 android:drawableTint="@color/white"/>
 
             <Button
@@ -123,6 +124,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_qr_code"
                 android:text="QR scan"
+                android:textSize="11sp"
                 android:drawableTint="@color/white"/>
 
             <Button
@@ -132,6 +134,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_description"
                 android:text="Letter"
+                android:textSize="11sp"
                 android:drawableTint="@color/white" />
 
             <Button
@@ -141,6 +144,7 @@
                 android:layout_weight="1"
                 android:drawableTop="@drawable/ic_person"
                 android:text="Profile"
+                android:textSize="11sp"
                 android:drawableTint="@color/white"/>
 
         </LinearLayout>

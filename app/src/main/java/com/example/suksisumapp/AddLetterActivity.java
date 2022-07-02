@@ -55,7 +55,7 @@ public class AddLetterActivity extends AppCompatActivity {
     DatabaseReference databaseLetter;
     StorageReference storageReference;
 
-    EditText editTextTitle;
+    EditText editTextReason;
     Button buttonDate, buttonPDF, buttonSubmit;
     String fname;
 
@@ -102,7 +102,7 @@ public class AddLetterActivity extends AppCompatActivity {
             }
         });
 
-        editTextTitle = (EditText) findViewById(R.id.editTextReason);
+        editTextReason = (EditText) findViewById(R.id.editTextReason);
         buttonDate = (Button) findViewById(R.id.buttonDate);
         buttonPDF = (Button) findViewById(R.id.buttonPDF);
         buttonSubmit = (Button) findViewById(R.id.buttonSubmitLetter);
@@ -190,8 +190,9 @@ public class AddLetterActivity extends AppCompatActivity {
     private void addLetter(String url) {
         //getting the values to save
         String name = fname;
-        String title = editTextTitle.getText().toString().trim();
+        String title = editTextReason.getText().toString().trim();
         String date = buttonDate.getText().toString().trim();
+        String file = buttonPDF.getText().toString().trim();
 
         //getting a unique id using push().getKey() method
         //it will create a unique id and we will use it as the Primary Key for our Letter
@@ -199,7 +200,7 @@ public class AddLetterActivity extends AppCompatActivity {
         String status = "Pending";
 
         //checking if the value is provided
-        if (!TextUtils.isEmpty(title)) {
+        if (!TextUtils.isEmpty(title) && !file.equals("Insert file")) {
 
             //creating an Letter Object
             Letter letter = new Letter(id, name, title, date, status, url);
@@ -215,9 +216,12 @@ public class AddLetterActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
 
+        } else if (file.equals("Insert file")){
+            //if the value is not given displaying a toast
+            Toast.makeText(this, "Please insert file!", Toast.LENGTH_LONG).show();
         } else {
             //if the value is not given displaying a toast
-            Toast.makeText(this, "Please enter a title", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please enter a reason!", Toast.LENGTH_LONG).show();
         }
     }
 
