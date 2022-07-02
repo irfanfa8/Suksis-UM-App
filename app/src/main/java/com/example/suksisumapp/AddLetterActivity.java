@@ -190,7 +190,7 @@ public class AddLetterActivity extends AppCompatActivity {
     private void addLetter(String url) {
         //getting the values to save
         String name = fname;
-        String title = editTextReason.getText().toString().trim();
+        String reason = editTextReason.getText().toString().trim();
         String date = buttonDate.getText().toString().trim();
         String file = buttonPDF.getText().toString().trim();
 
@@ -199,33 +199,36 @@ public class AddLetterActivity extends AppCompatActivity {
         String id = databaseLetter.push().getKey();
         String status = "Pending";
 
-        //checking if the value is provided
-        if (!TextUtils.isEmpty(title) && !file.equals("Insert file")) {
-
-            //creating an Letter Object
-            Letter letter = new Letter(id, name, title, date, status, url);
-
-            //Saving the Letter
-            databaseLetter.child(id).setValue(letter);
-
-
-            //displaying a success toast
-            Toast.makeText(this, "Letter added", Toast.LENGTH_LONG).show();
-
-            Intent intent = new Intent(AddLetterActivity.this, LetterActivity.class);
-            startActivity(intent);
-            finish();
-
-        } else if (file.equals("Insert file")){
-            //if the value is not given displaying a toast
-            Toast.makeText(this, "Please insert file!", Toast.LENGTH_LONG).show();
-        } else {
-            //if the value is not given displaying a toast
-            Toast.makeText(this, "Please enter a reason!", Toast.LENGTH_LONG).show();
+        //checking if email and passwords are empty
+        if(TextUtils.isEmpty(reason)){
+            Toast.makeText(this,"Please enter reason!",Toast.LENGTH_LONG).show();
+            return;
         }
+
+        if(date.equals("Select date")){
+            Toast.makeText(this,"Please select date",Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(file.equals("Insert file")){
+            Toast.makeText(this,"Please insert file",Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //creating an Letter Object
+        Letter letter = new Letter(id, name, reason, date, status, url);
+
+        //Saving the Letter
+        databaseLetter.child(id).setValue(letter);
+
+        //displaying a success toast
+        Toast.makeText(this, "Letter added", Toast.LENGTH_LONG).show();
+
+        Intent intent = new Intent(AddLetterActivity.this, LetterActivity.class);
+        startActivity(intent);
+        finish();
+
     }
-
-
 
     //this method is uploading the file
     //the code is same as the previous tutorial
