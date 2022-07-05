@@ -137,7 +137,7 @@ public class AddFeedActivity extends AppCompatActivity
             if(feed_edit==null) {
 
                 //checking if the value is provided
-                if (!feed_title.equals("") && !feed_date.equals("") && !feed_time.equals("") && !feed_note.equals("")) {
+                if (!feed_title.equals("") && !feed_date.equals("Date") && !feed_time.equals("Time") && !feed_note.equals("")) {
                     dao.add(feeds).addOnSuccessListener(suc ->
                     {
                         Toast.makeText(this, "Posted!", Toast.LENGTH_SHORT).show();

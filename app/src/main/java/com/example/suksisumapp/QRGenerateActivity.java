@@ -153,25 +153,29 @@ public class QRGenerateActivity extends AppCompatActivity {
                     String text1 = BtnQRDate.getText().toString().trim();
                     String text2 = BtnQRStartTime.getText().toString().trim();
                     String text3 = BtnQREndTime.getText().toString().trim();
-                    //Get input value from edit text
-                    String textQR = text1 + " (" + text2 + "-" + text3 + ")";
-                    //Initialize bit matrix
-                    BitMatrix matrix = writer.encode(textQR, BarcodeFormat.QR_CODE, 350, 350);
-                    //Initialize barcode encoder
-                    BarcodeEncoder encoder = new BarcodeEncoder();
-                    //Initialize bitmap
-                    Bitmap bitmap = encoder.createBitmap(matrix);
+                    if (!text1.equals("Select Date") && !text2.equals("Start Time") && !text3.equals("End Time")){
+                        //Get input value from edit text
+                        String textQR = text1 + " (" + text2 + "-" + text3 + ")";
+                        //Initialize bit matrix
+                        BitMatrix matrix = writer.encode(textQR, BarcodeFormat.QR_CODE, 350, 350);
+                        //Initialize barcode encoder
+                        BarcodeEncoder encoder = new BarcodeEncoder();
+                        //Initialize bitmap
+                        Bitmap bitmap = encoder.createBitmap(matrix);
 
-                    showImageDialog(textQR, bitmap);
+                        showImageDialog(textQR, bitmap);
 
-                    //Set bitmap on image view
-                    //IVOutput.setImageBitmap(bitmap);
-                    //Initialize input manager
-                    InputMethodManager manager = (InputMethodManager) getSystemService(
-                            Context.INPUT_METHOD_SERVICE
-                    );
-                    //Hide soft keyboard
-                    //manager.hideSoftInputFromWindow(ETGenerate.getApplicationWindowToken(), 0);
+                        //Set bitmap on image view
+                        //IVOutput.setImageBitmap(bitmap);
+                        //Initialize input manager
+                        InputMethodManager manager = (InputMethodManager) getSystemService(
+                                Context.INPUT_METHOD_SERVICE
+                        );
+                        //Hide soft keyboard
+                        //manager.hideSoftInputFromWindow(ETGenerate.getApplicationWindowToken(), 0);
+                    } else {
+                        Toast.makeText(QRGenerateActivity.this, "Please fill all the detail!", Toast.LENGTH_SHORT).show();
+                    }
                 } catch (WriterException e) {
                     e.printStackTrace();
                 }
