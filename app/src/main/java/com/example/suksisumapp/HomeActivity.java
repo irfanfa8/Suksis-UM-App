@@ -91,18 +91,21 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this, QRActivity.class));
+                finish();
             }
         });
         ButtonLetter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this, LetterActivity.class));
+                finish();
             }
         });
         ButtonProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(HomeActivity.this, ProfileActivity.class));
+                finish();
             }
         });
 
