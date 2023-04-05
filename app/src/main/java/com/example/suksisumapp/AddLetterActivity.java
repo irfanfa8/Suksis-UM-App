@@ -127,6 +127,14 @@ public class AddLetterActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addLetter();
+            }
+        });
+        */
     }
 
     private void getPDF() {
