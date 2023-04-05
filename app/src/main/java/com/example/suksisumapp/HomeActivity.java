@@ -106,18 +106,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        //test visible
-        /*
-        TVStaff = (TextView) findViewById(R.id.TVStaff);
-        TVStudent = (TextView) findViewById(R.id.TVStudent);
-        TVStaff.setVisibility(View.GONE);
-        TVStudent.setVisibility(View.GONE);
-        */
-
         userId = firebaseAuth.getCurrentUser().getUid();
-
-        //displaying logged in user name
-        //textViewUserEmail.setText(user.getEmail());
 
         //RecyclerView
         swipeRefreshLayout = findViewById(R.id.swip);
@@ -211,42 +200,4 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
-
-    //Search menu
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.search, menu);
-        MenuItem item = menu.findItem(R.id.search);
-        SearchView searchView = (SearchView)item.getActionView();
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                txtSearch(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String query) {
-                txtSearch(query);
-                return false;
-            }
-        });
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    private void txtSearch(String str){
-        FirebaseRecyclerOptions<Feeds> options =
-                new FirebaseRecyclerOptions.Builder<Feeds>()
-                    .setQuery(FirebaseDatabase.getInstance().getReference().child("Feeds").orderByChild("feedTitle").startAt(str).endAt(str+"~"), Feeds.class)
-                    .build();
-
-        adapter.notifyDataSetChanged();
-        isLoading = false;
-        swipeRefreshLayout.setRefreshing(false);
-    }
-
-     */
 }

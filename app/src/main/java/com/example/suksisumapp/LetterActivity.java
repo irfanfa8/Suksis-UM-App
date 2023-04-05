@@ -366,10 +366,10 @@ public class LetterActivity extends AppCompatActivity {
 
 
     private boolean deleteLetter(String id) {
-        //getting the specified artist reference
+        //getting the specified letter reference
         DatabaseReference dR = FirebaseDatabase.getInstance().getReference("Letters").child(id);
 
-        //removing artist
+        //removing letter
         dR.removeValue();
 
         Toast.makeText(getApplicationContext(), "Letter Deleted", Toast.LENGTH_LONG).show();

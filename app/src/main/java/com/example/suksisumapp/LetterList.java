@@ -19,7 +19,6 @@ public class LetterList extends ArrayAdapter<Letter> {
         this.letters = letters;
     }
 
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();

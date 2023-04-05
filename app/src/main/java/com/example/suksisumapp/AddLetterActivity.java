@@ -85,17 +85,12 @@ public class AddLetterActivity extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
         String userId = firebaseAuth.getCurrentUser().getUid();
 
-        //displaying logged in user name
-        //textViewUserEmail.setText(user.getEmail());
-
         DocumentReference documentReference = firebaseFirestore.collection("users").document(userId);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException e) {
                 if(documentSnapshot.exists()){
-
                     fname = documentSnapshot.getString("fullname");
-
                 }else {
                     Log.d("tag", "onEvent: Document do not exists");
                 }
@@ -139,8 +134,7 @@ public class AddLetterActivity extends AppCompatActivity {
                 addLetter();
             }
         });
-
-         */
+        */
     }
 
     private void getPDF() {
@@ -155,8 +149,6 @@ public class AddLetterActivity extends AppCompatActivity {
             startActivity(intent);
             return;
         }
-
-
 
         //creating an intent for file chooser
         Intent intent = new Intent();
@@ -185,7 +177,6 @@ public class AddLetterActivity extends AppCompatActivity {
             }
         }
     }
-
 
     private void addLetter(String url) {
         //getting the values to save
@@ -227,7 +218,6 @@ public class AddLetterActivity extends AppCompatActivity {
         Intent intent = new Intent(AddLetterActivity.this, LetterActivity.class);
         startActivity(intent);
         finish();
-
     }
 
     //this method is uploading the file
